@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "author_handle": "alice",
+    "text": "Just shipped the first version of our FastAPI backend.",
+    "created_at": "2024-01-01T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "author_handle": "bob",
+    "text": "Exploring how Grok could help summarize trending X stories.",
+    "created_at": "2024-01-01T10:15:00Z"
+  },
+  {
+    "id": "3",
+    "author_handle": "carol",
+    "text": "SQLite is surprisingly powerful for small, demoable projects.",
+    "created_at": "2024-01-01T11:30:00Z"
+  },
+  {
+    "id": "4",
+    "author_handle": "dave",
+    "text": "Tailwind + Next.js makes it easy to build a clean homepage.",
+    "created_at": "2024-01-01T12:45:00Z"
+  },
+  {
+    "id": "5",
+    "author_handle": "eve",
+    "text": "Clustering related posts into stories really helps with information overload.",
+    "created_at": "2024-01-01T14:00:00Z"
+  }
+]
+
