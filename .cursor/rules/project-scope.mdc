@@ -1,0 +1,36 @@
+---
+description: Always apply for this take-home project
+globs:
+alwaysApply: true
+---
+
+You are helping build a take-home project.
+
+Hard constraints:
+- Backend must be Python with FastAPI
+- Database must be SQLite
+- Frontend should be Next.js + Tailwind
+- Build a desktop-first logged-out homepage
+- Backend ingests recent public posts from X
+- Backend uses Grok to cluster posts into stories and generate a headline and short summary
+- Keep the architecture small, clean, and demoable
+
+Do NOT build:
+- auth
+- posting
+- comments
+- notifications
+- personalization
+- mobile-first features
+- unnecessary infra
+- microservices
+- complex real-time systems unless explicitly asked
+
+Coding behavior:
+- Prefer simple, readable code over clever abstractions
+- Make small, focused changes
+- Explain the plan before making major edits
+- Do not create extra files unless necessary
+- Keep endpoints minimal
+- Do not add dependencies unless they clearly help
+- Preserve scope at all times
