@@ -1,3 +1,5 @@
+import RefreshButton from "./refresh-button";
+
 type ApiStoryPost = {
   id: number;
   author_handle: string;
@@ -284,9 +286,12 @@ export default async function Home() {
                 Clusters of public posts, distilled into headlines.
               </p>
             </div>
-            <div className="hidden text-xs text-zinc-500 dark:text-zinc-400 md:block">
-              Desktop-first layout · no sign-in required
-            </div>
+            <div className="flex items-center gap-4">
+  <div className="hidden text-xs text-zinc-500 dark:text-zinc-400 md:block">
+    Desktop-first layout · no sign-in required
+  </div>
+  <RefreshButton />
+</div>
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">

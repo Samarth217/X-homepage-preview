@@ -1,33 +1,297 @@
 [
   {
-    "id": "1",
-    "author_handle": "alice",
-    "text": "Just shipped the first version of our FastAPI backend.",
-    "created_at": "2024-01-01T09:00:00Z"
+    "id": "101",
+    "author_handle": "techscope",
+    "text": "Smaller AI models keep getting better. Feels like the conversation is shifting from raw hype to what teams can actually ship.",
+    "created_at": "2026-03-13T08:00:00Z"
   },
   {
-    "id": "2",
-    "author_handle": "bob",
-    "text": "Exploring how Grok could help summarize trending X stories.",
-    "created_at": "2024-01-01T10:15:00Z"
+    "id": "102",
+    "author_handle": "aifeed",
+    "text": "A lot of builders are saying model cost matters more now than benchmark bragging rights.",
+    "created_at": "2026-03-13T08:03:00Z"
   },
   {
-    "id": "3",
-    "author_handle": "carol",
-    "text": "SQLite is surprisingly powerful for small, demoable projects.",
-    "created_at": "2024-01-01T11:30:00Z"
+    "id": "103",
+    "author_handle": "modelwatch",
+    "text": "The biggest AI story this month might just be efficiency. People want fast, cheap, reliable tools.",
+    "created_at": "2026-03-13T08:07:00Z"
   },
   {
-    "id": "4",
-    "author_handle": "dave",
-    "text": "Tailwind + Next.js makes it easy to build a clean homepage.",
-    "created_at": "2024-01-01T12:45:00Z"
+    "id": "104",
+    "author_handle": "devpulse",
+    "text": "Everyone loves talking about frontier models, but a lot of real products are probably going to run on something much smaller.",
+    "created_at": "2026-03-13T08:12:00Z"
   },
   {
-    "id": "5",
-    "author_handle": "eve",
-    "text": "Clustering related posts into stories really helps with information overload.",
-    "created_at": "2024-01-01T14:00:00Z"
+    "id": "105",
+    "author_handle": "cloudbuilder",
+    "text": "Teams are getting pickier about latency and inference cost. That changes which models actually win in production.",
+    "created_at": "2026-03-13T08:18:00Z"
+  },
+  {
+    "id": "106",
+    "author_handle": "openweights",
+    "text": "Open models are becoming good enough that people are seriously asking whether every workflow needs a premium closed model.",
+    "created_at": "2026-03-13T08:24:00Z"
+  },
+
+  {
+    "id": "107",
+    "author_handle": "marketsnow",
+    "text": "Markets opened mixed again this morning as traders tried to price in AI spending, rates, and a very crowded tech trade.",
+    "created_at": "2026-03-13T09:00:00Z"
+  },
+  {
+    "id": "108",
+    "author_handle": "financeline",
+    "text": "There is still a massive debate over whether current AI valuations make sense if revenue growth slows even a little.",
+    "created_at": "2026-03-13T09:04:00Z"
+  },
+  {
+    "id": "109",
+    "author_handle": "streetbrief",
+    "text": "Semis, cloud, and infrastructure names are still carrying a lot of the AI optimism trade.",
+    "created_at": "2026-03-13T09:09:00Z"
+  },
+  {
+    "id": "110",
+    "author_handle": "macroview",
+    "text": "The market keeps acting like lower rates solve everything, but investors are still watching margins and spending pretty closely.",
+    "created_at": "2026-03-13T09:14:00Z"
+  },
+  {
+    "id": "111",
+    "author_handle": "dealflow",
+    "text": "A lot of traders seem split between 'this rally still has room' and 'everyone is way too positioned already.'",
+    "created_at": "2026-03-13T09:20:00Z"
+  },
+  {
+    "id": "112",
+    "author_handle": "equitynote",
+    "text": "The AI trade is no longer just about excitement. Now it is about whether spending turns into durable returns.",
+    "created_at": "2026-03-13T09:26:00Z"
+  },
+
+  {
+    "id": "113",
+    "author_handle": "gamedayhub",
+    "text": "That final possession is all anyone is talking about right now. Brutal clock management and an even worse shot selection.",
+    "created_at": "2026-03-13T10:00:00Z"
+  },
+  {
+    "id": "114",
+    "author_handle": "sportstalk",
+    "text": "Fans are absolutely roasting the coach after that collapse. One decision at the end changed the whole game.",
+    "created_at": "2026-03-13T10:05:00Z"
+  },
+  {
+    "id": "115",
+    "author_handle": "fanwire",
+    "text": "That clip is going to be everywhere today. Huge game, terrible ending, instant debate-show fuel.",
+    "created_at": "2026-03-13T10:09:00Z"
+  },
+  {
+    "id": "116",
+    "author_handle": "playbookdaily",
+    "text": "It is wild how one late-game mistake can completely erase an otherwise great performance.",
+    "created_at": "2026-03-13T10:14:00Z"
+  },
+  {
+    "id": "117",
+    "author_handle": "courtsideview",
+    "text": "The best part of sports discourse is that one ending can turn into ten different arguments in ten minutes.",
+    "created_at": "2026-03-13T10:18:00Z"
+  },
+  {
+    "id": "118",
+    "author_handle": "halftimerecap",
+    "text": "This is definitely one of those games people are going to remember for the finish, not everything that happened before it.",
+    "created_at": "2026-03-13T10:24:00Z"
+  },
+
+  {
+    "id": "119",
+    "author_handle": "screenbuzz",
+    "text": "A surprise trailer drop took over timelines this morning and now everyone is arguing over whether it actually lived up to the hype.",
+    "created_at": "2026-03-13T11:00:00Z"
+  },
+  {
+    "id": "120",
+    "author_handle": "popobserver",
+    "text": "The visuals are getting praised, but a lot of people think the studio is leaning way too hard on nostalgia.",
+    "created_at": "2026-03-13T11:06:00Z"
+  },
+  {
+    "id": "121",
+    "author_handle": "culturefeed",
+    "text": "No matter where you land on it, this was clearly the biggest entertainment conversation online this morning.",
+    "created_at": "2026-03-13T11:11:00Z"
+  },
+  {
+    "id": "122",
+    "author_handle": "watchparty",
+    "text": "People are either calling this a perfect reboot or saying it looks way too safe. There is absolutely no middle ground.",
+    "created_at": "2026-03-13T11:16:00Z"
+  },
+  {
+    "id": "123",
+    "author_handle": "filmthread",
+    "text": "The reactions are basically split between 'incredible trailer' and 'they showed the whole movie already.'",
+    "created_at": "2026-03-13T11:21:00Z"
+  },
+  {
+    "id": "124",
+    "author_handle": "timelinepop",
+    "text": "This is one of those moments where even people who are not fans are still watching the reaction posts.",
+    "created_at": "2026-03-13T11:28:00Z"
+  },
+
+  {
+    "id": "125",
+    "author_handle": "gamepatches",
+    "text": "Players are furious after the latest update nerfed half the fun builds and apparently introduced even more bugs.",
+    "created_at": "2026-03-13T12:00:00Z"
+  },
+  {
+    "id": "126",
+    "author_handle": "lootdrop",
+    "text": "The patch notes looked small, but somehow the update changed the whole mood around the game overnight.",
+    "created_at": "2026-03-13T12:04:00Z"
+  },
+  {
+    "id": "127",
+    "author_handle": "controlmeta",
+    "text": "It is always the same cycle: players ask for balance, then everyone gets mad when their favorite strategy gets hit.",
+    "created_at": "2026-03-13T12:09:00Z"
+  },
+  {
+    "id": "128",
+    "author_handle": "respawnchat",
+    "text": "Developers probably had to do something, but the timing of this patch could not have gone over worse.",
+    "created_at": "2026-03-13T12:15:00Z"
+  },
+  {
+    "id": "129",
+    "author_handle": "pixelwatch",
+    "text": "The funniest part is that the community now agrees the patch is bad for completely different reasons.",
+    "created_at": "2026-03-13T12:20:00Z"
+  },
+  {
+    "id": "130",
+    "author_handle": "arcadenews",
+    "text": "Gaming timelines move so fast that one patch can become the entire story of the day in a couple hours.",
+    "created_at": "2026-03-13T12:25:00Z"
+  },
+
+  {
+    "id": "131",
+    "author_handle": "cityguide",
+    "text": "People are debating whether remote work permanently changed downtown life or whether cities are just still in a weird transition period.",
+    "created_at": "2026-03-13T13:00:00Z"
+  },
+  {
+    "id": "132",
+    "author_handle": "urbanthread",
+    "text": "Some neighborhoods feel more alive than ever and others still feel half-empty. The recovery is clearly uneven.",
+    "created_at": "2026-03-13T13:06:00Z"
+  },
+  {
+    "id": "133",
+    "author_handle": "commuteblog",
+    "text": "Transit, rent, office attendance, restaurants — all of it is connected, which is why this conversation gets heated so fast.",
+    "created_at": "2026-03-13T13:12:00Z"
+  },
+  {
+    "id": "134",
+    "author_handle": "streetnotes",
+    "text": "You can tell people are talking from personal experience here because everyone thinks their city proves the rule.",
+    "created_at": "2026-03-13T13:18:00Z"
+  },
+  {
+    "id": "135",
+    "author_handle": "civicview",
+    "text": "The city debate online usually turns into a bigger argument about cost of living, housing, and what makes a place feel livable.",
+    "created_at": "2026-03-13T13:24:00Z"
+  },
+  {
+    "id": "136",
+    "author_handle": "metrofeed",
+    "text": "This topic always blows up because it mixes economics, lifestyle, and nostalgia all in one thread.",
+    "created_at": "2026-03-13T13:29:00Z"
+  },
+
+  {
+    "id": "137",
+    "author_handle": "foodboard",
+    "text": "A single restaurant review clip has people fighting again about whether online food culture has ruined normal dining expectations.",
+    "created_at": "2026-03-13T14:00:00Z"
+  },
+  {
+    "id": "138",
+    "author_handle": "kitchenline",
+    "text": "Some people think review culture helps great places get noticed. Others think everyone is just chasing aesthetics now.",
+    "created_at": "2026-03-13T14:05:00Z"
+  },
+  {
+    "id": "139",
+    "author_handle": "platewatch",
+    "text": "This topic always turns into a bigger argument about pricing, portions, and whether hype makes food taste better.",
+    "created_at": "2026-03-13T14:10:00Z"
+  },
+  {
+    "id": "140",
+    "author_handle": "diningroom",
+    "text": "Online food discourse somehow manages to be funny, elitist, and weirdly emotional at the same time.",
+    "created_at": "2026-03-13T14:14:00Z"
+  },
+  {
+    "id": "141",
+    "author_handle": "reviewwire",
+    "text": "You can always tell a restaurant topic is going viral when people start posting their most controversial local food opinions.",
+    "created_at": "2026-03-13T14:18:00Z"
+  },
+  {
+    "id": "142",
+    "author_handle": "bitesized",
+    "text": "The restaurant clip was the spark, but now the conversation is way bigger than the original post.",
+    "created_at": "2026-03-13T14:23:00Z"
+  },
+
+  {
+    "id": "143",
+    "author_handle": "travelthread",
+    "text": "A new airline policy update has people arguing again about bag fees, seat selection, and whether budget travel is even worth it anymore.",
+    "created_at": "2026-03-13T15:00:00Z"
+  },
+  {
+    "id": "144",
+    "author_handle": "runwaydesk",
+    "text": "Travel discourse gets intense fast because everyone has at least one terrible airport story ready to go.",
+    "created_at": "2026-03-13T15:05:00Z"
+  },
+  {
+    "id": "145",
+    "author_handle": "boardinggroup",
+    "text": "People are less mad about one fee and more mad that every step of flying now feels like its own mini upsell.",
+    "created_at": "2026-03-13T15:11:00Z"
+  },
+  {
+    "id": "146",
+    "author_handle": "windowseat",
+    "text": "The replies are full of travelers comparing notes on which airlines feel fair and which ones feel impossible.",
+    "created_at": "2026-03-13T15:16:00Z"
+  },
+  {
+    "id": "147",
+    "author_handle": "milesfeed",
+    "text": "Every travel policy debate eventually becomes a bigger rant about convenience, pricing, and shrinking patience.",
+    "created_at": "2026-03-13T15:20:00Z"
+  },
+  {
+    "id": "148",
+    "author_handle": "airbrief",
+    "text": "This is the kind of topic that goes wide because it is instantly relatable to anyone who has flown recently.",
+    "created_at": "2026-03-13T15:26:00Z"
   }
 ]
-
