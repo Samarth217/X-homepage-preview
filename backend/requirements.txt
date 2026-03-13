@@ -5,3 +5,4 @@ pydantic_core @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/
 SQLAlchemy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_8505aiaior/croot/sqlalchemy_1745854531934/work
 starlette==0.52.1
 uvicorn==0.41.0
+requests

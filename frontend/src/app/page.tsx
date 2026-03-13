@@ -1,82 +1,66 @@
-export default function Home() {
-  type Story = {
-    id: string;
-    category: string;
-    headline: string;
-    summary: string;
-    updatedAt: string; // ISO-like
-    posts: { author: string; text: string }[];
-  };
+type ApiStoryPost = {
+  id: number;
+  author_handle: string;
+  text: string;
+  created_at: string;
+};
 
-  const stories: Story[] = [
-    {
-      id: "s1",
-      category: "Technology",
-      headline: "AI labs race to ship smaller models that still feel “smart”",
-      summary:
-        "A new wave of lightweight models is landing in consumer products, balancing latency and cost without giving up the vibe of strong reasoning.",
-      updatedAt: "2024-01-01T14:00:00Z",
-      posts: [
-        { author: "alice", text: "The speed gains are real—feels like a new baseline." },
-        { author: "bob", text: "Latency is the hidden product feature nobody talks about." },
-        { author: "carol", text: "Small models + good tooling = surprisingly capable." },
-      ],
-    },
-    {
-      id: "s2",
-      category: "Business",
-      headline: "Quiet hiring is back: teams expand without headlines",
-      summary:
-        "Companies are adding critical roles selectively—more targeted, less splashy—especially in infra, security, and applied AI.",
-      updatedAt: "2024-01-01T12:45:00Z",
-      posts: [
-        { author: "dave", text: "Seeing more senior IC roles posted without fanfare." },
-        { author: "eve", text: "Budget is there, but it’s focused on outcomes." },
-      ],
-    },
-    {
-      id: "s3",
-      category: "Science",
-      headline: "Open datasets shift from “more data” to “better labels”",
-      summary:
-        "Researchers are prioritizing quality, provenance, and evaluation-ready annotations—trading raw scale for trust and usability.",
-      updatedAt: "2024-01-01T11:30:00Z",
-      posts: [
-        { author: "frank", text: "Provenance is the difference between useful and risky." },
-        { author: "grace", text: "High-quality labels beat 10x noisy data any day." },
-        { author: "heidi", text: "Eval sets are finally getting the love they deserve." },
-        { author: "ivan", text: "Curated beats scraped when you need reliability." },
-      ],
-    },
-    {
-      id: "s4",
-      category: "Culture",
-      headline: "The new internet aesthetic: calm UI, loud ideas",
-      summary:
-        "Design trends are swinging toward softer palettes and restrained layouts—while content gets sharper, faster, and more opinionated.",
-      updatedAt: "2024-01-01T10:15:00Z",
-      posts: [
-        { author: "judy", text: "Whitespace is the new flex." },
-        { author: "ken", text: "Clean UI makes the takes feel even hotter." },
-      ],
-    },
-    {
-      id: "s5",
-      category: "Markets",
-      headline: "Rate cuts rumors spark a familiar kind of optimism",
-      summary:
-        "Traders are watching inflation prints closely. The mood: cautious, but eager to believe the next cycle is around the corner.",
-      updatedAt: "2024-01-01T09:00:00Z",
-      posts: [
-        { author: "lee", text: "Feels like people are front‑running the story again." },
-        { author: "maya", text: "The narrative moves faster than the data." },
-        { author: "nick", text: "Positioning is everything into these prints." },
-      ],
-    },
-  ];
+type ApiStory = {
+  id: number;
+  headline: string;
+  summary: string;
+  category: string | null;
+  story_score: number | null;
+  created_at: string;
+  updated_at: string;
+  representative_posts: ApiStoryPost[];
+};
 
-  const featured = stories[0];
-  const rest = stories.slice(1);
+type Story = {
+  id: string;
+  category: string;
+  headline: string;
+  summary: string;
+  updatedAt: string; // ISO-like
+  posts: { author: string; text: string }[];
+};
+
+async function fetchStories(): Promise<{ stories: Story[]; error: string | null }> {
+  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+  if (!base) {
+    return { stories: [], error: "Missing NEXT_PUBLIC_API_BASE_URL." };
+  }
+
+  try {
+    const url = `${base.replace(/\/$/, "")}/stories?limit=12`;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) {
+      return { stories: [], error: `Failed to load stories (HTTP ${res.status}).` };
+    }
+
+    const data = (await res.json()) as ApiStory[];
+    const stories: Story[] = (data ?? []).map((s) => ({
+      id: String(s.id),
+      category: s.category ?? "General",
+      headline: s.headline,
+      summary: s.summary,
+      updatedAt: s.updated_at ?? s.created_at,
+      posts: (s.representative_posts ?? []).map((p) => ({
+        author: p.author_handle,
+        text: p.text,
+      })),
+    }));
+
+    return { stories, error: null };
+  } catch {
+    return { stories: [], error: "Failed to load stories." };
+  }
+}
+
+export default async function Home() {
+  const { stories, error } = await fetchStories();
+  const featured = stories[0] ?? null;
+  const rest = featured ? stories.slice(1) : [];
 
   const formatUpdated = (iso: string) => {
     const d = new Date(iso);
@@ -191,33 +175,51 @@ export default function Home() {
                 <span className="inline-flex items-center rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
                   Featured
                 </span>
-                <span className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
-                  {featured.category}
-                </span>
-                <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                  {formatUpdated(featured.updatedAt)}
-                </span>
+                {featured ? (
+                  <>
+                    <span className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
+                      {featured.category}
+                    </span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {formatUpdated(featured.updatedAt)}
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                    {error ? "Unable to load stories" : "No stories yet"}
+                  </span>
+                )}
               </div>
 
               <h1 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-zinc-950 dark:text-white">
-                {featured.headline}
+                {featured ? featured.headline : error ? "Stories unavailable" : "No stories yet"}
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
-                {featured.summary}
+                {featured
+                  ? featured.summary
+                  : error
+                    ? "We couldn’t fetch stories from the backend. Make sure the API is running and `NEXT_PUBLIC_API_BASE_URL` is set."
+                    : "Run the backend refresh once to generate stories, then reload this page."}
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {featured.posts.slice(0, 4).map((p, idx) => (
-                  <div
-                    key={`featured-${idx}`}
-                    className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
-                  >
-                    <div className="font-semibold text-zinc-900 dark:text-zinc-50">
-                      @{p.author}
+                {featured ? (
+                  featured.posts.slice(0, 4).map((p, idx) => (
+                    <div
+                      key={`featured-${idx}`}
+                      className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
+                    >
+                      <div className="font-semibold text-zinc-900 dark:text-zinc-50">
+                        @{p.author}
+                      </div>
+                      <div className="mt-1">{p.text}</div>
                     </div>
-                    <div className="mt-1">{p.text}</div>
+                  ))
+                ) : (
+                  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 sm:col-span-2">
+                    {error ?? "No representative posts to show yet."}
                   </div>
-                ))}
+                )}
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -228,7 +230,7 @@ export default function Home() {
                   Read the full story
                 </a>
                 <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                  Live stories, updated as conversations evolve.
+                  {featured ? "Live stories, updated as conversations evolve." : "Connect the backend and refresh to populate stories."}
                 </div>
               </div>
             </div>
@@ -262,6 +264,11 @@ export default function Home() {
                     </div>
                   </a>
                 ))}
+                {!featured && (
+                  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
+                    {error ?? "No stories to brief yet."}
+                  </div>
+                )}
               </div>
             </div>
           </aside>
@@ -286,6 +293,18 @@ export default function Home() {
             {rest.map((s) => (
               <StoryCard key={s.id} story={s} />
             ))}
+            {!featured && (
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm leading-6 text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 md:col-span-2 xl:col-span-3">
+                <div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+                  {error ? "Couldn’t load stories" : "No stories yet"}
+                </div>
+                <div className="mt-2">
+                  {error
+                    ? "Check that the FastAPI server is running and that CORS/networking allows requests from the frontend."
+                    : "Run `POST /refresh` on the backend once, then reload this page."}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -326,4 +345,5 @@ export default function Home() {
       </main>
     </div>
   );
+  
 }
