@@ -53,7 +53,7 @@ The frontend fetches stories from the backend and renders:
 ### 1. Clone the repo
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Samarth217/X-homepage-preview.git
 cd x-homepage-takehome
 ```
 
