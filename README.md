@@ -4,6 +4,8 @@ A desktop-first logged-out homepage prototype for X.com that surfaces emerging s
 
 The goal of this project is to make the logged-out homepage feel more like a modern internet news front page by clustering public posts into story cards with headlines and summaries, while still supporting the sign-in and sign-up funnel.
 
+WEBSITE: https://x-homepage-preview-9knbeyxml-samarth217s-projects.vercel.app/
+
 ## What it does
 
 * Ingests a batch of recent public-post samples
